@@ -1,0 +1,79 @@
+  
+    html, body {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: transparent;
+    }
+    .fade-out {
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    .fade-in {
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .start{
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .start.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.137);
+      padding: 1%;
+      position: relative;
+      z-index: -1;
+    }
+
+    /* Hero section */
+    #inicio {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    }
+
+    /* Gradiente dinámico animado 
+    #inicio::before {
+    content: "";
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: linear-gradient(270deg, #ff0000, #800080, #ff0000);
+    background-size: 600% 600%;
+    animation: gradientShift 20s ease infinite;
+    z-index: -20;
+    opacity: 0.15;           
+    mix-blend-mode: screen;   
+    pointer-events: none;
+    } */
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    #btnMusica {
+      background: black;
+      color: red;
+      font-size: 1.5rem;
+      border: 1px solid rgb(0, 0, 0);
+      transition: transform 0.3s ease;
+    }
+
+    #btnMusica.playing {
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
