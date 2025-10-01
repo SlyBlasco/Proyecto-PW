@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería - Nuestro Amor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rojo: '#ff0033',
+                        morado: '#a855f7'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/css/home.css" />
+</head>
+
+<body class="bg-black text-white font-sans">
+    <!-- Navbar -->
+    <header id="navbar"
+        class="start fixed top-0 left-0 w-full bg-black bg-opacity-80 shadow-md z-50 transition-all duration-500">
+        <nav class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-rojo text-2xl font-serif">Por Siempre Nosotros ❤️</h1>
+            <ul class="flex gap-6 text-white font-semibold">
+                <li><a href="/home.html" class="hover:text-rojo transition">🏠 Inicio</a></li>
+                <li><a href="#cartas" class="hover:text-rojo transition">💌 Cartas</a></li>
+                <li><a href="/galeria.html" class="hover:text-rojo transition">🖼️ Galería</a></li>
+                <li><a href="#juegos" class="hover:text-rojo transition">🎮 Juegos</a></li>
+                <li><a href="#bitacora" class="hover:text-rojo transition">🎙️ Bitácora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="start h-screen flex items-center justify-center text-center">
+    <div class="glassmorphism">
+            <h2 class="text-6xl font-serif text-rojo mb-6">Nuestra Galería 📸</h2>
+            <p class="text-lg max-w-xl mx-auto text-white/80 mb-8">Aquí están algunos de los momentos más especiales que
+                hemos compartido juntos. Cada foto cuenta una historia de nuestro amor.</p>
+        </div>
+    </section>
+
+    <!-- Sección de fotos -->
+    <section id="fotos" class="start grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-8 mx-auto">
+        <div class="glassmorphism h-fit">
+            <img src="/images/galeria/foto1.jpg" alt="Foto 1" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+        <div class="glassmorphism h-fit">
+            <img src="/images/galeria/foto2.jpg" alt="Foto 2" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+        <div class="glassmorphism h-fit">
+            <img src="/images/galeria/foto3.jpg" alt="Foto 3" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+        <div class="glassmorphism h-fit">
+            <img src="/images/galeria/foto4.png" alt="Foto 4" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+        <div class="glassmorphism h-fit">
+            <img src="/images/galeria/foto5.png" alt="Foto 5" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+    </section>
+
+    <!-- Audio + controles -->
+    <audio id="musica" preload="auto" autoplay></audio>
+    <button id="btnMusica"
+        class="fixed bottom-6 right-6 w-16 h-16 rounded-full flex items-center justify-center cursor-pointer shadow-lg bg-rojo">
+        <img src="/images/Vinilo.png" alt="Icono de música" class="w-10 h-10">
+    </button>
+
+
+    <!-- Canvas corazones flotantes -->
+    <canvas id="particles" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="/js/corazones.js"></script>
+    <script src="/js/efectos.js"></script>
+    <script src="/js/musica.js"></script>
+    <script src="/js/ocultarNavbar.js"></script>
+    <script src="/js/animacionInicio.js"></script>
+</body>
+</html>

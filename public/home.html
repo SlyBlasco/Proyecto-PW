@@ -28,20 +28,19 @@
   <!-- Navbar -->
   <header id="navbar" class="start fixed top-0 left-0 w-full bg-black bg-opacity-80 shadow-md z-50 transition-all duration-500">
     <nav class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <h1 class="text-rojo text-2xl font-serif">❤️ Nuestro Amor</h1>
+      <h1 class="text-rojo text-2xl font-serif">Por Siempre Nosotros ❤️</h1>
       <ul class="flex gap-6 text-white font-semibold">
-        <li><a href="#inicio" class="hover:text-rojo transition">🏠 Inicio</a></li>
+        <li><a href="/home.html" class="hover:text-rojo transition">🏠 Inicio</a></li>
         <li><a href="#cartas" class="hover:text-rojo transition">💌 Cartas</a></li>
-        <li><a href="#galeria" class="hover:text-rojo transition">🖼️ Galería</a></li>
+        <li><a href="/galeria.html" class="hover:text-rojo transition">🖼️ Galería</a></li>
         <li><a href="#juegos" class="hover:text-rojo transition">🎮 Juegos</a></li>
         <li><a href="#bitacora" class="hover:text-rojo transition">🎙️ Bitácora</a></li>
-        <li><a href="#secreto" class="hover:text-rojo transition">🔐 Secreto</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Sección de bienvenida -->
-  <section id="inicio" class="start h-screen flex items-center justify-center text-center">
+  <section id="inicio" class="start flex items-center justify-center h-[70vh] text-center">
     <div class="glassmorphism">
       <h2 class="text-6xl font-serif text-rojo mb-6">Bienvenida, mi amor ❤️</h2>
       <p class="text-lg max-w-xl mx-auto text-white/80">Este lugar es solo nuestro. Aquí guardo todo lo que hemos vivido, para que lo revivas cuando quieras.</p>
@@ -49,7 +48,7 @@
 
   </section>
 
-  <section id="aniversario" class="py-16 text-center">
+  <section id="aniversario" class="py-8 text-center">
     <p class="text-white/70 text-lg start">
       ¡Felicidades por nuestro año juntos! 🥰 Que sigan los momentos maravillosos.
     </p>
@@ -70,32 +69,10 @@
   <script src="/js/corazones.js"></script>
   <script src="/js/efectos.js"></script>
   <script src="/js/musica.js"></script>
-  <script>
-    // Ocultar navbar al hacer scroll hacia abajo
-    let lastScrollTop = 0;
-    const navbar = document.getElementById("navbar");
-
-    window.addEventListener("scroll", () => {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScroll > lastScrollTop) {
-        navbar.classList.add("fade-out");
-        navbar.classList.remove("fade-in");
-      } else {
-        navbar.classList.add("fade-in");
-        navbar.classList.remove("fade-out");
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    }, false);
-  </script>
-  <script>
-    window.addEventListener("load", () => {
-      document.querySelectorAll(".start").forEach(el => {
-        el.classList.add("show");
-      });
-    });
-  </script>
+  <script src="/js/ocultarNavbar.js"></script>
+  <script src="/js/animacionInicio.js"></script>
 </body>
-<footer class="bg-black/90 text-white/60 text-center py-4">
+<footer class="bg-black/90 text-white/60 text-center py-4 fixed inset-x-0 bottom-0">
   <p class="text-sm">💌 Creado con amor por Luis Blasco</p>
   <p class="text-xs mt-1">© 2025 Todos los derechos reservados</p>
 </footer>

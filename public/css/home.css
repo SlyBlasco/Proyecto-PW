@@ -37,9 +37,9 @@
 
     /* Hero section */
     #inicio {
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
+      position: relative;
+      overflow: hidden;
+      z-index: 0;
     }
 
     /* Gradiente dinámico animado 
