@@ -1,79 +1,156 @@
-  
-    html, body {
-      scroll-behavior: smooth;
-    }
-    body {
-      background: transparent;
-    }
-    .fade-out {
-      transition: transform 0.5s ease, opacity 0.5s ease;
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    .fade-in {
-      transition: transform 0.5s ease, opacity 0.5s ease;
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .start{
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-    }
-    .start.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .glassmorphism {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(20px);
-      border: 2px solid rgba(255, 255, 255, 0.137);
-      padding: 1%;
-      position: relative;
-      z-index: -1;
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: transparent;
+  }
+
+  .fade-out {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .fade-in {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .start {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+
+  .start.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.137);
+    padding: 1%;
+    position: relative;
+    z-index: -1;
+  }
+
+  /* Hero section */
+  #inicio {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
     }
 
-    /* Hero section */
-    #inicio {
-      position: relative;
-      overflow: hidden;
-      z-index: 0;
+    50% {
+      background-position: 100% 50%;
     }
 
-    /* Gradiente dinámico animado 
-    #inicio::before {
-    content: "";
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  #btnMusica {
+    background: black;
+    color: red;
+    font-size: 1.5rem;
+    border: 1px solid rgb(0, 0, 0);
+    transition: transform 0.3s ease;
+  }
+
+  #btnMusica.playing {
+    animation: spin 4s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Contenedor principal de la línea de tiempo */
+#lineaTiempo ul {
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Clearfix para contener los floats */
+#lineaTiempo ul::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* La línea vertical central */
+#lineaTiempo ul::before {
+    content: '';
     position: absolute;
-    top:0; left:0; right:0; bottom:0;
-    background: linear-gradient(270deg, #ff0000, #800080, #ff0000);
-    background-size: 600% 600%;
-    animation: gradientShift 20s ease infinite;
-    z-index: -20;
-    opacity: 0.15;           
-    mix-blend-mode: screen;   
-    pointer-events: none;
-    } */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: rgb(82, 82, 82);
+}
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    #btnMusica {
-      background: black;
-      color: red;
-      font-size: 1.5rem;
-      border: 1px solid rgb(0, 0, 0);
-      transition: transform 0.3s ease;
-    }
+/* Estilos para TODOS los eventos de la lista */
+#lineaTiempo li {
+    position: relative;
+    width: 50%;
+    box-sizing: border-box; /* Importante para que el padding no afecte el width */
+    margin-bottom: 50px;
+}
 
-    #btnMusica.playing {
-      animation: spin 4s linear infinite;
-    }
+/* Estilos para TODOS los circulitos */
+#lineaTiempo li::before {
+    content: '';
+    position: absolute;
+    background-color: rgb(255, 1, 1);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+/* --- REGLAS ESPECÍFICAS --- */
+
+/* Eventos IMPARES (Izquierda) */
+#lineaTiempo li:nth-child(odd) {
+    text-align: right;
+    padding-right: 30px;
+    padding-left: 70px;
+    clear: both; /* <-- LA SOLUCIÓN CLAVE */
+}
+
+/* Círculo de los eventos IMPARES */
+#lineaTiempo li:nth-child(odd)::before {
+    left: 100%;
+}
+
+/* Eventos PARES (Derecha) */
+#lineaTiempo li:nth-child(even) {
+    float: right;
+    text-align: left;
+    padding-left: 30px;
+    padding-right: 70px;
+}
+
+/* Círculo de los eventos PARES */
+#lineaTiempo li:nth-child(even)::before {
+    left: 0%;
+}
