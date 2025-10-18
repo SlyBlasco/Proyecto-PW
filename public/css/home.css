@@ -154,3 +154,8 @@
 #lineaTiempo li:nth-child(even)::before {
     left: 0%;
 }
+
+#flecha > p{
+  font-size: 100px;
+  text-align: center;
+}
