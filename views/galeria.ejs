@@ -1,48 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Galería - Por Siempre Nosotros</title>
-    <link rel="icon" href="/images/calendario.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        rojo: '#ff0033',
-                        morado: '#a855f7'
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="/css/home.css" />
-</head>
+<%- include('partials/header') %>
 
 <body class="bg-black text-white font-sans">
-    <!-- Navbar -->
-    <header id="navbar"
-        class="fixed top-0 left-0 w-full bg-black bg-opacity-80 shadow-md z-50 transition-all duration-500">
-        <nav class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-            <h1 class="text-rojo text-2xl font-serif">Por Siempre Nosotros ❤️</h1>
-            <ul class="flex gap-6 text-white font-semibold">
-                <li><a href="/home.html" class="hover:text-rojo transition">🏠 Inicio</a></li>
-                <li><a href="#cartas" class="hover:text-rojo transition">💌 Cartas</a></li>
-                <li><a href="/galeria.html" class="hover:text-rojo transition">🖼️ Galería</a></li>
-                <li><a href="#juegos" class="hover:text-rojo transition">🎮 Juegos</a></li>
-                <li><a href="#bitacora" class="hover:text-rojo transition">🎙️ Bitácora</a></li>
-            </ul>
-        </nav>
-    </header>
+    
+    <%- include('partials/navbar') %>
 
     <section id="inicio" class="start h-screen flex items-center justify-center text-center">
     <div class="glassmorphism">
@@ -162,3 +122,5 @@
     <script src="/js/animacionInicio.js"></script>
 </body>
 </html>
+
+<%- include('partials/footer') %>

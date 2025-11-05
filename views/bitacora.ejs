@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<body class="bg-black text-white font-sans">
+
+  <%- include('partials/navbar') %>
+
+  <!-- Sección de bienvenida -->
+  <section id="inicio" class="start flex items-center justify-center h-[60vh] text-center">
+    <div class="glassmorphism">
+      <h2 class="text-6xl font-serif text-rojo mb-6"></h2>
+      <p class="text-lg max-w-xl mx-auto text-white/80">Este lugar es solo nuestro. Aquí guardo todo lo que hemos
+        vivido, para que lo revivas cuando quieras.</p>
+    </div>
+
+  </section>
+
+
+  <!-- Audio + controles -->
+  <audio id="musica" preload="auto" autoplay></audio>
+  <button id="btnMusica"
+    class="fixed bottom-6 right-6 w-16 h-16 rounded-full flex items-center justify-center cursor-pointer shadow-lg">
+    <img src="/images/Vinilo.png" alt="Icono de música" class="w-10 h-10">
+  </button>
+
+
+  <!-- Canvas corazones flotantes -->
+  <canvas id="particles" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="/js/corazones.js"></script>
+  <script src="/js/musica.js"></script>
+  <script src="/js/ocultarNavbar.js"></script>
+  <script src="/js/animacionInicio.js"></script>
+
+</body>
+
+<%- include('partials/footer') %>

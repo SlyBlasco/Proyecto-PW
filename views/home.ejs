@@ -1,0 +1,89 @@
+<%- include('partials/header') %>
+<body class="bg-black text-white font-sans">
+  
+  <%- include('partials/navbar') %>
+
+  <!-- Sección de bienvenida -->
+  <section id="inicio" class="start flex items-center justify-center h-[80vh] text-center">
+    <div class="glassmorphism">
+      <h2 class="text-6xl font-serif text-rojo mb-6">Bienvenida, mi Dianita ❤️</h2>
+      <p class="text-lg max-w-xl mx-auto text-white/80">Este lugar es solo nuestro. Aquí guardo todo lo que hemos
+        vivido, para que lo revivas cuando quieras.</p>
+    </div>
+
+  </section>
+
+  <div id="flecha" class="start ">
+    <p>&#129051;</p>
+  </div>
+
+  <section id="aniversario" class="py-8 text-center">
+    <p class="text-white/70 text-lg start p-20">
+      ¡Felicidades por nuestro año juntos! 🥰 Que sigan los momentos maravillosos.
+    </p>
+  </section>
+
+  <section id="lineaTiempo" class="start">
+    <h2 class="text-6xl font-serif text-rojo mb-6 text-center">Nuestra historia</h2>
+    <div class="">
+      <ul>
+        <li>
+          <h3>04 de Octubre, 2024</h3>
+          <p>El día que todo comenzó. 9:46 p.m fue la hora en la que decidí mandarse porfin ese mensaje. Fuimos poco a
+            poco conociendonos durante el mes, creando un lazo que, inconcientemente, sería irrompible.</p>
+        </li>
+        <li>
+          <h3>26 de Octubre, 2024</h3>
+          <p></p>
+        </li>
+        <li>
+          <h3>10 de Junio, 2023</h3>
+          <p>¡Nuestro primer viaje! La playa, el sol y tú. No se puede pedir más. ❤️</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contadorAniversario" class="start p-20">
+    <h2 class="text-6xl font-serif text-rojo mb-6 text-center">Proximo Aniversario</h2>
+    <div id="contador" class="flex justify-center gap-8 text-center text-white/80">
+      <div>
+        <span id="dias" class="text-5xl font-bold">0</span>
+        <p>Días</p>
+      </div>
+      <div>
+        <span id="horas" class="text-5xl font-bold">0</span>
+        <p>Horas</p>
+      </div>
+      <div>
+        <span id="minutos" class="text-5xl font-bold">0</span>
+        <p>Minutos</p>
+      </div>
+      <div>
+        <span id="segundos" class="text-5xl font-bold">0</span>
+        <p>Segundos</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audio + controles -->
+  <audio id="musica" preload="auto" autoplay></audio>
+  <button id="btnMusica"
+    class="fixed bottom-6 right-6 w-16 h-16 rounded-full flex items-center justify-center cursor-pointer shadow-lg">
+    <img src="/images/Vinilo.png" alt="Icono de música" class="w-10 h-10">
+  </button>
+
+
+  <!-- Canvas corazones flotantes -->
+  <canvas id="particles" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="/js/corazones.js"></script>
+  <script src="/js/musica.js"></script>
+  <script src="/js/ocultarNavbar.js"></script>
+  <script src="/js/animacionInicio.js"></script>
+  <script src="/js/contador.js"></script>
+</body>
+
+<%- include('partials/footer') %>
