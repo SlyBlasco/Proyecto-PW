@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Galería - Nuestro Amor</title>
+    <title>Galería - Por Siempre Nosotros</title>
+    <link rel="icon" href="/images/calendario.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400&display=swap"
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,7 +31,7 @@
 <body class="bg-black text-white font-sans">
     <!-- Navbar -->
     <header id="navbar"
-        class="start fixed top-0 left-0 w-full bg-black bg-opacity-80 shadow-md z-50 transition-all duration-500">
+        class="fixed top-0 left-0 w-full bg-black bg-opacity-80 shadow-md z-50 transition-all duration-500">
         <nav class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <h1 class="text-rojo text-2xl font-serif">Por Siempre Nosotros ❤️</h1>
             <ul class="flex gap-6 text-white font-semibold">
@@ -52,21 +53,44 @@
     </section>
 
     <!-- Sección de fotos -->
-    <section id="fotos" class="start grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-8 mx-auto items-center">
-        <div class="glassmorphism h-fit">
-            <img src="/images/galeria/foto1.jpg" alt="Foto 1" class="w-full h-auto rounded-lg shadow-lg">
+    <section id="galeriaContainer" class="start grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-8 mx-auto items-center">
+        <video controls class="glassmorphism w-full h-fit rounded-lg shadow-lg object-cover">
+            <source src="/images/galeria/video1.webm" type="video/webm">
+        </video>
+        <video controls class="glassmorphism w-full h-fit rounded-lg shadow-lg object-cover">
+            <source src="/images/galeria/video2.webm" type="video/webm">
+        </video>
+        <video controls class="glassmorphism w-full h-fit rounded-lg shadow-lg object-cover">
+            <source src="/images/galeria/video3.webm" type="video/webm">
+        </video>
+        <div class="glassmorphism">
+            <div class="w-full overflow-hidden rounded-lg shadow-lg bg-white/5">
+                <div class="w-full aspect-[3/3] overflow-hidden">
+                    <video controls playsinline class="w-full h-full object-cover">
+                        <source src="/images/galeria/video4.webm" type="video/webm">
+                    </video>
+                </div>
+            </div>
         </div>
-        <div class="glassmorphism h-fit">
-            <img src="/images/galeria/foto2.jpg" alt="Foto 2" class="w-full h-auto rounded-lg shadow-lg">
+
+        <div class="glassmorphism">
+            <div class="w-full overflow-hidden rounded-lg shadow-lg bg-white/5">
+                <div class="w-full aspect-[3/3] overflow-hidden">
+                    <video controls playsinline class="w-full h-full object-cover">
+                        <source src="/images/galeria/video5.webm" type="video/webm">
+                    </video>
+                </div>
+            </div>
         </div>
-        <div class="glassmorphism h-fit">
-            <img src="/images/galeria/foto3.jpg" alt="Foto 3" class="w-full h-auto rounded-lg shadow-lg">
-        </div>
-        <div class="glassmorphism h-fit">
-            <img src="/images/galeria/foto4.png" alt="Foto 4" class="w-full h-auto rounded-lg shadow-lg">
-        </div>
-        <div class="glassmorphism h-fit">
-            <img src="/images/galeria/foto5.png" alt="Foto 5" class="w-full h-auto rounded-lg shadow-lg">
+
+        <div class="glassmorphism">
+            <div class="w-full overflow-hidden rounded-lg shadow-lg bg-white/5">
+                <div class="w-full aspect-[3/3] overflow-hidden">
+                    <video controls playsinline class="w-full h-full object-cover">
+                        <source src="/images/galeria/video6.webm" type="video/webm">
+                    </video>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -82,6 +106,54 @@
     <canvas id="particles" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
 
     <!-- Scripts -->
+    <script>
+    // 1. Apuntamos al contenedor que dejamos en el HTML
+    const galeriaContainer = document.getElementById('galeriaContainer');
+
+    const nombresFotos = [
+        'foto1.webp',
+        'foto2.webp',
+        'foto3.webp',
+        'foto4.webp', 
+        'foto5.webp', 
+        'foto6.webp',
+        'foto7.webp',
+        'foto8.webp',
+        'foto9.webp',
+        'foto10.webp',
+        'foto11.webp',
+        'foto12.webp',
+        'foto13.webp',
+        'foto14.webp',
+        'foto15.webp',
+        'foto16.webp',
+        'foto17.webp',
+        'foto18.webp',
+        'foto19.webp',
+        'foto20.webp',
+        'foto21.webp',
+        'foto22.webp',
+        'foto23.webp'
+    ];
+
+    nombresFotos.forEach((nombreArchivo, index) => {
+        
+        const altTexto = `Foto ${index + 1}`;
+
+        const htmlDeLaFoto = `
+            <div class="glassmorphism">
+                <div class="w-full overflow-hidden rounded-lg shadow-lg bg-white/5">
+                    <div class="w-full aspect-[3/3] overflow-hidden">
+                        <img src="/images/galeria/${nombreArchivo}" alt="${altTexto}" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        `;
+
+        galeriaContainer.insertAdjacentHTML('beforeend', htmlDeLaFoto);
+    });
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     <script src="/js/corazones.js"></script>
     <script src="/js/efectos.js"></script>

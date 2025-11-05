@@ -1,4 +1,4 @@
-  html,
+html,
   body {
     scroll-behavior: smooth;
   }
@@ -7,14 +7,17 @@
     background: transparent;
   }
 
-  .fade-out {
+  .fade {
     transition: transform 0.5s ease, opacity 0.5s ease;
+    will-change: transform, opacity;
+  }
+
+  .fade-out {
     transform: translateY(-100%);
     opacity: 0;
   }
 
   .fade-in {
-    transition: transform 0.5s ease, opacity 0.5s ease;
     transform: translateY(0);
     opacity: 1;
   }
