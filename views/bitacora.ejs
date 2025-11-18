@@ -4,24 +4,43 @@
 
   <%- include('partials/navbar') %>
 
-  <!-- Sección de bienvenida -->
-  <section id="inicio" class="start flex items-center justify-center h-[60vh] text-center">
-    <div class="glassmorphism">
-      <h2 class="text-6xl font-serif text-rojo mb-6"></h2>
-      <p class="text-lg max-w-xl mx-auto text-white/80">Este lugar es solo nuestro. Aquí guardo todo lo que hemos
-        vivido, para que lo revivas cuando quieras.</p>
+  <!-- Sección de cassettes -->
+  <section id="carousel-track" class="start flex items-center justify-center h-[90dvh]">
+    <div class="glassmorphism flex items-center justify-center gap-2 sm:gap-4 px-4 max-w-4xl mx-auto w-full">
+      
+      <div id="prevBtn" class="cursor-pointer flex-shrink-0">
+        <img src="images/back.png" alt="Imagen de boton previo" class="h-8 sm:h-12">
+      </div>
+
+      <!-- viewport-->
+      <div class="viewport overflow-hidden flex-1 max-w-2xl">
+        <!-- track -->
+        <div id="track" class="flex cursor-pointer">
+          <div id="tape1" class="min-w-full flex justify-center">
+            <img src="/images/tapes/1.gif" alt="Gif de cassette 1" class="max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh] h-auto w-auto object-contain">
+            <audio id="audioCassette1" controls class="w-full max-w-xs mt-4"></audio>
+          </div>
+          <div id="tape2" class="min-w-full flex justify-center">
+            <img src="/images/tapes/2.gif" alt="Gif de cassette 2" class="max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh] h-auto w-auto object-contain">
+            <audio id="audioCassette2"></audio>
+          </div>
+          <div id="tape3" class="min-w-full flex justify-center">
+            <img src="/images/tapes/3.gif" alt="Gif de cassette 3" class="max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh] h-auto w-auto object-contain">
+            <audio id="audioCassette3"></audio>
+          </div>
+          <div id="tape4" class="min-w-full flex justify-center">
+            <img src="/images/tapes/4.gif" alt="Gif de cassette 4" class="max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh] h-auto w-auto object-contain">
+            <audio id="audioCassette4"></audio>
+          </div>
+        </div>
+      </div>
+
+      <div id="nextBtn" class="cursor-pointer flex-shrink-0">
+        <img src="images/forward.png" alt="Imagen de boton adelante" class="h-8 sm:h-12">
+      </div>
     </div>
 
   </section>
-
-
-  <!-- Audio + controles -->
-  <audio id="musica" preload="auto" autoplay></audio>
-  <button id="btnMusica"
-    class="fixed bottom-6 right-6 w-16 h-16 rounded-full flex items-center justify-center cursor-pointer shadow-lg">
-    <img src="/images/Vinilo.png" alt="Icono de música" class="w-10 h-10">
-  </button>
-
 
   <!-- Canvas corazones flotantes -->
   <canvas id="particles" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
@@ -29,9 +48,9 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <script src="/js/corazones.js"></script>
-  <script src="/js/musica.js"></script>
   <script src="/js/ocultarNavbar.js"></script>
   <script src="/js/animacionInicio.js"></script>
+  <script src="/js/bitacora.js"></script>
 
 </body>
 

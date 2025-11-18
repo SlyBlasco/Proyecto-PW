@@ -1,11 +1,11 @@
 const canciones = [
-  "/music/LaGloriaEresTu.mp3",
-  "/music/Bleed.mp3",
-  "/music/NightsLikeThis.mp3",
-  "/music/IllShowYou.mp3",
-  "/music/NadieMas.mp3",
-  "/music/ISmokedAwayMyBrain.mp3",
-  "/music/WeFellInLoveInOctober.mp3"
+  "audios/music/LaGloriaEresTu.mp3",
+  "audios/music/Bleed.mp3",
+  "audios/music/NightsLikeThis.mp3",
+  "audios/music/IllShowYou.mp3",
+  "audios/music/NadieMas.mp3",
+  "audios/music/ISmokedAwayMyBrain.mp3",
+  "audios/music/WeFellInLoveInOctober.mp3"
 ];
 
 const audio = document.getElementById("musica");
