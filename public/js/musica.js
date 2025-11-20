@@ -5,7 +5,9 @@ const canciones = [
   "audios/music/IllShowYou.mp3",
   "audios/music/NadieMas.mp3",
   "audios/music/ISmokedAwayMyBrain.mp3",
-  "audios/music/WeFellInLoveInOctober.mp3"
+  "audios/music/WeFellInLoveInOctober.mp3",
+  "audios/music/DimeSiTeAcuerdas.mp3",
+  "audios/music/TuChat.mp3",
 ];
 
 const audio = document.getElementById("musica");
@@ -36,13 +38,13 @@ audio.addEventListener("ended", () => {
   siguienteCancion();
 });
 
-// Iniciar al cargar
+// Iniciar
 mezclar(listaActual);
 btn.classList.add("playing");
 siguienteCancion();
 
 
-// Botón de pausa/reanudar
+// Pausa/reanudar
 btn.addEventListener("click", () => {
   if (reproduciendo) {
     audio.pause();

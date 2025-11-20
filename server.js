@@ -22,7 +22,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// --- Lógica de Login (la tuya) ---
 const USUARIO = "amor";
 const PASSWORD = "1121"; 
 
@@ -40,20 +39,17 @@ app.post("/login", (req, res) => {
   const { user, pass } = req.body;
   if (user === USUARIO && pass === PASSWORD) {
     req.session.auth = true;
-    // ¡Corregido! Redirigimos a la *ruta* /home, no al archivo
     return res.redirect("/home"); 
   }
-  // ¡Mejorado! Renderiza la página de login con un mensaje de error
   return res.render("index", { error: "Usuario o contraseña incorrecta" });
 });
 
 // 3. Middleware de protección
-//    Se ejecutará para TODAS las rutas definidas DEBAJO de él.
+// Se ejecutará para TODAS las rutas definidas DEBAJO de él.
 app.use((req, res, next) => {
   if (req.session.auth) {
     return next(); // Si la sesión está activa, continúa
   } else {
-    // Si no, redirige al login
     return res.redirect("/"); 
   }
 });
@@ -62,27 +58,28 @@ app.use((req, res, next) => {
  
 // 4. Ruta para el Home
 app.get("/home", (req, res) => {
-  // Renderiza views/home.ejs
   res.render("home", { title: 'Inicio - Nuestro Amor'});
 });
 
 // 5. Ruta para la Galería
 app.get("/galeria", (req, res) => {
-  // Renderiza views/galeria.ejs
   res.render("galeria", { title: 'Galeria - Nuestro Amor'});
 });
 
 // 6. Ruta para la Bitacora
 app.get("/bitacora", (req, res) => {
-  // Renderiza views/bitacora.ejs
   res.render("bitacora", { title: 'Bitacora - Nuestro Amor'});
 });
 
+// 7. Ruta para los Juegos
+app.get("/juegos", (req, res) => {
+  res.render("juegos", { title: 'Juegos - Nuestro Amor'});
+});
 
-// 7. Ruta para el Logout (¡Importante!)
+// 8. Ruta para el Logout
 app.get("/logout", (req, res) => {
   req.session.destroy((err) => {
-    res.redirect("/"); // Redirige al login
+    res.redirect("/");
   });
 });
 

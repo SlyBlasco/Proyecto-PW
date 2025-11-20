@@ -1,0 +1,41 @@
+<%- include('partials/header') %>
+
+  <body class="bg-black text-white font-sans">
+
+    <%- include('partials/navbar') %>
+
+      <!-- Contenedor principal REACT -->
+      <div id="root" class="pt-20">
+        <div class="h-screen w-full flex items-center justify-center bg-fondo">
+          <h1 class="text-4xl font-serif text-rojo animate-pulse">Cargando Juegos...</h1>
+        </div>
+      </div>
+
+      <!-- Librerias de react-->
+      <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+      <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+      <!-- Babel -->
+      <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+      <script type="text/babel" src="/js/hubJuegos.jsx"></script>
+
+      <!-- Audio + controles -->
+      <audio id="musica" preload="auto" autoplay></audio>
+      <button id="btnMusica"
+        class="fixed bottom-6 right-6 w-16 h-16 rounded-full flex items-center justify-center cursor-pointer shadow-lg">
+        <img src="/images/Vinilo.png" alt="Icono de música" class="w-10 h-10">
+      </button>
+
+      <!-- Canvas corazones flotantes -->
+      <canvas id="particles" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
+
+      <!-- Scripts -->
+      <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+      <script src="/js/corazones.js"></script>
+      <script src="/js/ocultarNavbar.js"></script>
+      <script src="/js/animacionInicio.js"></script>
+      <script src="/js/musica.js"></script>
+  </body>
+
+  <%- include('partials/footer') %>
