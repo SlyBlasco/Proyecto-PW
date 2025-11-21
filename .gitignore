@@ -7,3 +7,10 @@ public/audios/bitacora/*.mp3
 
 #Ignorar el env
 .env
+
+#Archivos de sistema y logs
+
+.DS_Store Thumbs.db npm-debug.log*
+
+#Caché de tailwind
+.tailwindcss

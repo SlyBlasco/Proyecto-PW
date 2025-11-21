@@ -6,7 +6,7 @@ const { title } = require("process");
 require('dotenv').config()
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // --- Configuración ---
 // 1. Decirle a Express que EJS es el motor de plantillas
