@@ -1,9 +1,15 @@
 <%- include('partials/header') %>
 
+<div id="page-loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black transition-opacity duration-500">
+    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-rojo mb-4"></div>
+    <h2 class="text-2xl font-serif text-white animate-pulse">Cargando nuestros recuerdos...</h2>
+</div>
+
 <body class="bg-black text-white font-sans">
     
     <%- include('partials/navbar') %>
 
+    <!-- Sección de bienvenida -->
     <section id="inicio" class="start h-screen flex items-center justify-center text-center">
     <div class="glassmorphism">
             <h2 class="text-4xl md:text-7xl font-serif text-rojo mb-6">Nuestra Galería 📸</h2>
@@ -27,7 +33,7 @@
             <div class="w-full overflow-hidden rounded-lg shadow-lg bg-white/5">
                 <div class="w-full aspect-[3/3] overflow-hidden">
                     <video controls playsinline class="w-full h-full object-cover">
-                        <source src="/images/galeria/video4.webm" type="video/webm">
+                        <source src="/images/galeria/video4.webm" type="video/webm" preload="none">
                     </video>
                 </div>
             </div>
@@ -37,7 +43,7 @@
             <div class="w-full overflow-hidden rounded-lg shadow-lg bg-white/5">
                 <div class="w-full aspect-[3/3] overflow-hidden">
                     <video controls playsinline class="w-full h-full object-cover">
-                        <source src="/images/galeria/video5.webm" type="video/webm">
+                        <source src="/images/galeria/video5.webm" type="video/webm" preload="none">
                     </video>
                 </div>
             </div>
@@ -47,7 +53,7 @@
             <div class="w-full overflow-hidden rounded-lg shadow-lg bg-white/5">
                 <div class="w-full aspect-[3/3] overflow-hidden">
                     <video controls playsinline class="w-full h-full object-cover">
-                        <source src="/images/galeria/video6.webm" type="video/webm">
+                        <source src="/images/galeria/video6.webm" type="video/webm" preload="none">
                     </video>
                 </div>
             </div>
@@ -66,8 +72,17 @@
     <canvas id="particles" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
 
     <!-- Scripts -->
-    <script>
-    // 1. Apuntamos al contenedor que dejamos en el HTML
+    <!-- Script para inyectar un contenedor para cada foto -->
+    <script> 
+    // Escucha cuando toda la página (imágenes incluidas) ha cargado
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('page-loader');
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    });
+
     const galeriaContainer = document.getElementById('galeriaContainer');
 
     const nombresFotos = [
@@ -104,7 +119,7 @@
             <div class="glassmorphism">
                 <div class="w-full overflow-hidden rounded-lg shadow-lg bg-white/5">
                     <div class="w-full aspect-[3/3] overflow-hidden">
-                        <img src="/images/galeria/${nombreArchivo}" alt="${altTexto}" class="w-full h-full object-cover">
+                        <img src="/images/galeria/${nombreArchivo}" alt="${altTexto}" loading="lazy" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>

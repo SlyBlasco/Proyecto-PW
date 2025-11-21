@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // --- Middleware ---
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public"))); // Sirve CSS, JS, Imágenes
+app.use(express.static(path.join(__dirname, "public")));
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
@@ -29,10 +29,9 @@ const PASSWORD = process.env.PASSWORD;
 // --- Rutas ---
 
 // 1. Ruta GET para mostrar la página de login
-// Renderiza views/index.ejs
 app.get("/", (req, res) => {
   // {error: null} para que la plantilla no falle la primera vez
-  res.render("index", { error: null, title: "Nuestro Amor" }); 
+  res.render("index", { error: null, title: "Siempre Nosotros" }); 
 });
 
 // 2. Ruta POST para procesar el login
@@ -42,11 +41,10 @@ app.post("/login", (req, res) => {
     req.session.auth = true;
     return res.redirect("/home"); 
   }
-  return res.render("index", { error: "Usuario o contraseña incorrecta" });
+  return res.render("index", { error: "Usuario o contraseña incorrecta", title: "Siempre Nosotros" });
 });
 
 // 3. Middleware de protección
-// Se ejecutará para TODAS las rutas definidas DEBAJO de él.
 app.use((req, res, next) => {
   if (req.session.auth) {
     return next(); // Si la sesión está activa, continúa
@@ -55,26 +53,26 @@ app.use((req, res, next) => {
   }
 });
 
-// --- Rutas Protegidas (Solo se accede si req.session.auth es true) ---
+// --- Rutas Protegidas ---
  
 // 4. Ruta para el Home
 app.get("/home", (req, res) => {
-  res.render("home", { title: 'Inicio - Nuestro Amor'});
+  res.render("home", { title: 'Inicio - Siempre Nosotros'});
 });
 
 // 5. Ruta para la Galería
 app.get("/galeria", (req, res) => {
-  res.render("galeria", { title: 'Galeria - Nuestro Amor'});
+  res.render("galeria", { title: 'Galeria - Siempre Nosotros'});
 });
 
 // 6. Ruta para la Bitacora
 app.get("/bitacora", (req, res) => {
-  res.render("bitacora", { title: 'Bitacora - Nuestro Amor'});
+  res.render("bitacora", { title: 'Bitacora - Siempre Nosotros'});
 });
 
 // 7. Ruta para los Juegos
 app.get("/juegos", (req, res) => {
-  res.render("juegos", { title: 'Juegos - Nuestro Amor'});
+  res.render("juegos", { title: 'Juegos - Siempre Nosotros'});
 });
 
 // 8. Ruta para el Logout
