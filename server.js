@@ -23,8 +23,8 @@ app.use(session({
   saveUninitialized: false
 }));
 
-const USUARIO = process.env.USER;
-const PASSWORD = process.env.PASSWORD; 
+const USUARIO = process.env.APP_USER;
+const PASSWORD = process.env.APP_PASSWORD; 
 
 // --- Rutas ---
 
