@@ -4,3 +4,6 @@
 
 #Ignorar archivos de audio mp3 en la carpeta audios/bitocara
 public/audios/bitacora/*.mp3
+
+#Ignorar el env
+.env

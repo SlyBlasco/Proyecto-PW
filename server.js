@@ -3,6 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const path = require("path");
 const { title } = require("process");
+require('dotenv').config()
 
 const app = express();
 const PORT = 3000;
@@ -17,13 +18,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public"))); // Sirve CSS, JS, Imágenes
 app.use(session({
-  secret: "clave-ultra-secreta",
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false
 }));
 
-const USUARIO = "amor";
-const PASSWORD = "1121"; 
+const USUARIO = process.env.USER;
+const PASSWORD = process.env.PASSWORD; 
 
 // --- Rutas ---
 
@@ -31,7 +32,7 @@ const PASSWORD = "1121";
 // Renderiza views/index.ejs
 app.get("/", (req, res) => {
   // {error: null} para que la plantilla no falle la primera vez
-  res.render("index", { error: null }); 
+  res.render("index", { error: null, title: "Nuestro Amor" }); 
 });
 
 // 2. Ruta POST para procesar el login
