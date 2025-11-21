@@ -162,7 +162,7 @@ footer {
   }
 }
 
-/* Contenedor principal de la línea de tiempo */
+/* Línea de tiempo */
 #lineaTiempo ul {
   position: relative;
   padding: 20px 0;
@@ -191,7 +191,6 @@ footer {
   position: relative;
   width: 50%;
   box-sizing: border-box;
-  /* Importante para que el padding no afecte el width */
   margin-bottom: 50px;
 }
 
@@ -214,7 +213,6 @@ footer {
   padding-right: 30px;
   padding-left: 70px;
   clear: both;
-  /* <-- LA SOLUCIÓN CLAVE */
 }
 
 /* Círculo de los eventos IMPARES */
@@ -233,9 +231,4 @@ footer {
 /* Círculo de los eventos PARES */
 #lineaTiempo li:nth-child(even)::before {
   left: 0%;
-}
-
-#flecha>p {
-  font-size: 100px;
-  text-align: center;
 }
